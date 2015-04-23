@@ -1,0 +1,52 @@
+
+
+{% extends "app_one1.html" %}
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="table-responsivei span12">
+
+<form class="form-signin" method="post" action="" enctype="multipart/form-data">
+
+    <table class="table ">
+
+        <tr>
+        </tr>
+    <tr>
+        <td>
+    <span> {{ pro.createuser }} /</span>
+    <span> {{ pro.author}} </span>
+    <span> {{ pro.branch }}</span>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+    <h2>
+        故障详情:
+    </h2>
+    <br>
+       <pre>{{ pro.content }}
+    <br>
+        {% if pro.img %}<img src="/media/{{ pro.img  }}" class="img-responsive"  />
+        {% endif %}
+故障处理人员: {{ pro.enumerate }}
+        <br>故障正在处理中,请稍等...
+
+    </pre>
+        </td>
+    </tr>
+
+    {% if s == "1" or user == "root" %}
+    <tr>
+        <td>
+        <button class="btn btn-success" type="submit" >故障处理完成</button>
+        </td>
+    </tr>
+    {% endif %}
+
+    </table>
+    </div>
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% for s in con %}
+  <tr>
+<td> {{s.id}} </td><td>{{s.time}} </td> <td> {{ s.ip }} </td><td> {{ s.tags}}</td><td>   {{ s.project }}</td><td>   {{ s.admin}}</td><td>  {{s.content}}</td>
+  </tr>
+<br>
+{% endfor %}
