@@ -164,11 +164,11 @@ import ldap
 from django_auth_ldap.config import LDAPSearch
 
 
-AUTH_LDAP_SERVER_URI = "ldap://192.168.160.101:389"
-AUTH_LDAP_BIND_DN = "CN=gerrit,OU=TravelZen-SH,DC=TravelZenSH,DC=com"
-AUTH_LDAP_BIND_PASSWORD = "Vaherf7"
+AUTH_LDAP_SERVER_URI = "ldap://192.168.1.1:389"
+AUTH_LDAP_BIND_DN = "CN=over,OU=over,DC=over,DC=com"
+AUTH_LDAP_BIND_PASSWORD = "over"
 
-AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=travelzen-sh,dc=TravelZenSH,dc=com", ldap.SCOPE_SUBTREE, "(&(objectClass=person)(sAMAccountName=%(user)s))")
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=over,dc=over,dc=com", ldap.SCOPE_SUBTREE, "(&(objectClass=person)(sAMAccountName=%(user)s))")
 
 AUTH_LDAP_USER_ATTR_MAP = {
                            "username":"uid",
@@ -192,10 +192,10 @@ AUTHENTICATION_BACKENDS = (
 DJANGO_LOG_LEVEL=DEBUG
 
 
-EMAIL_HOST = 'smtp.travelzen.com'
+EMAIL_HOST = 'smtp.over.com'
 EMAIL_PORT = 25
-EMAIL_HOST_USER = 'ke.dong@travelzen.com'
-EMAIL_HOST_PASSWORD = 'Abc12345'
+EMAIL_HOST_USER = 'over@over.com'
+EMAIL_HOST_PASSWORD = '12345'
 
 
 
