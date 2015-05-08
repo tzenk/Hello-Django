@@ -52,6 +52,13 @@
 
 	{% block content %}
 
+<!-- 	<div>
+		<input type="checkbox" name="my-checkbox" checked value="1">
+		<input type="checkbox" name="my-checkbox" checked value="2">
+		<script>
+		$('input[name="my-checkbox"]').bootstrapSwitch();
+		</script>
+	</div> -->
 	{% if e_user %}
 	<form class="form-signin" method="post" action="" enctype="multipart/form-data">
 	<button class="btn btn-lg btn-primary btn-block" type="submit" name="statu" value={{ e_user.working }}>{{ e_user.working }}</button>
@@ -164,9 +171,13 @@
 		</div>
 	</div>
 	{% endblock %}
+	<!-- <input class="form-control" id="disabledInput" type="text" value="Disabled input here..." > -->
 
 </div>
-
+<!-- <script src="/static/js/bootstrap-switch.js"></script> -->
+<!-- <script src="/static/js/jquery.js"></script> -->
+<!-- <script src="/static/js/bootstrap-wysiwyg.js"></script> -->
+<!-- <script src="/static/js/bootstrap.js"></script> -->
 <script src="/static/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 

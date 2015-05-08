@@ -160,6 +160,27 @@ FILE_UPLOAD_HANDLERS = (
 
 
 
+import ldap
+from django_auth_ldap.config import LDAPSearch
+
+
+AUTH_LDAP_SERVER_URI = "ldap://192.168.160.101:389"
+AUTH_LDAP_BIND_DN = "CN=gerrit,OU=TravelZen-SH,DC=TravelZenSH,DC=com"
+AUTH_LDAP_BIND_PASSWORD = "Vaherf7"
+
+AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=travelzen-sh,dc=TravelZenSH,dc=com", ldap.SCOPE_SUBTREE, "(&(objectClass=person)(sAMAccountName=%(user)s))")
+
+AUTH_LDAP_USER_ATTR_MAP = {
+                           "username":"uid",
+                           "password":"userPassword",
+                           "first_name":"givenName",
+                           "last_name":"sn",
+                           "email":"mail",
+                           }
+
+AUTH_LDAP_ALWAYS_UPDATE_USER = True
+AUTH_LDAP_CACHE_GROUPS = True
+AUTH_LDAP_GROUP_CACHE_TIMEOUT = 1800
 
 
 AUTHENTICATION_BACKENDS = (
@@ -169,6 +190,13 @@ AUTHENTICATION_BACKENDS = (
 
 
 DJANGO_LOG_LEVEL=DEBUG
+
+
+EMAIL_HOST = 'smtp.travelzen.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'ke.dong@travelzen.com'
+EMAIL_HOST_PASSWORD = 'Abc12345'
+
 
 
 #CRONTAB
@@ -195,3 +223,17 @@ LOGGING = {
         },
     },
 }
+
+
+CACHES = {
+    'default': {
+         'BACKEND': 'redis_cache.RedisCache',
+         'LOCATION': '127.0.0.1:6379',
+         'OPTIONS': {
+             'DB': 1,
+             'PASSWORD': '',
+             'PARSER_CLASS': 'redis.connection.HiredisParser'
+         },
+    },
+}
+
